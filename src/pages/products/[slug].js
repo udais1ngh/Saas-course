@@ -30,7 +30,7 @@ export default function ProductPage({ prodeuct }) {
         ProductContent();
 
 
-    }, [])
+    })
 
 
     return (
