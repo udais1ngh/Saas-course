@@ -1,4 +1,4 @@
-import { SITE_URL } from "src/core/utils";
+//import { SITE_URL } from "src/core/utils";
 import { stripe } from "src/pricing/utils/stripe";
 
 export default async function handler(req, res) {
@@ -11,8 +11,8 @@ export default async function handler(req, res) {
             mode: 'subscription',
             payment_method_types: ['card'],
             line_items: [{ price: priceId, quantity: 1 }],
-            success_url: `${SITE_URL}/success`,
-            cancel_url: `${SITE_URL}/pricing`,
+            success_url: `${process.env.SITE_URL}/success`,
+            cancel_url: `${process.env.SITE_URL}/pricing`,
 
 
         }

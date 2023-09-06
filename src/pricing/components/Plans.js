@@ -1,6 +1,6 @@
 import { useState } from "react"
 import classNames from "classnames";
-import { SITE_URL } from "src/core/utils";
+//import { SITE_URL } from "src/core/utils";
 import { loadStripe } from "@stripe/stripe-js";
 
 
@@ -18,7 +18,7 @@ export default function Plans({ plan }) {
     async function onCheckout() {
 
         setIsRedirecting(true);
-        const response = await fetch(`${SITE_URL}/api/checkout/${isSelected ? y.id : p.id}`)
+        const response = await fetch(`${process.env.SITE_URL}/api/checkout/${isSelected ? y.id : p.id}`)
         const data = await response.json();
 
         const stripeRedirect = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
