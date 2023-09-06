@@ -1,5 +1,5 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
-//import { SITE_URL } from "src/core/utils";
+import { SITE_URL } from "src/core/utils";
 import { stripe } from "src/pricing/utils/stripe";
 
 
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
  
 const billingSession = await stripe.billingPortal.sessions.create({
     customer:profile.stripe_customer_id,
-    return_url:process.env.SITE_URL,
+    return_url:SITE_URL,
 })
 
 
