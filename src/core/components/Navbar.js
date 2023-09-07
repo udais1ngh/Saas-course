@@ -25,7 +25,7 @@ export default function Navbars() {
 
     async function ManageBilling() {
 
-        const response = await fetch(`${SITE_URL}/api/manage-billing`)
+        const response = await fetch(`${process.env.SITE_URL}/api/manage-billing`)
         const data = await response.json();
 
         if (data) {
